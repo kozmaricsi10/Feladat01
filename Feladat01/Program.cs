@@ -20,7 +20,20 @@ namespace Feladat01
                 Console.WriteLine("Adj meg egy szamot");
                 string userSzam = Console.ReadLine();
 
-                szamok[i] = int.Parse(userSzam);
+                int szam;
+                // TryParse használata:
+                //   hamis értéket ad vissza, ha nem sikerül a konvertálás
+                if (int.TryParse(userSzam, out szam))
+                {
+                    szamok.Add(szam);
+                }
+                else
+                {
+                    Console.WriteLine("NEM SZÁMOT ADTÁL MEG!!");
+                    return;
+                }
+
+                    
             }
 
             int max = szamok[0];
@@ -47,7 +60,24 @@ namespace Feladat01
                 Console.WriteLine("Adj meg egy szamot: ");
                 string userSzam = Console.ReadLine();
 
-                tomb[i] = int.Parse(userSzam);
+                int szam;
+                // TryParse használata:
+                //   hamis értéket ad vissza, ha nem sikerül a konvertálás
+                if (int.TryParse(userSzam, out szam))
+                {
+                    szamok[i] = szam;
+                }
+                else
+                {
+                    Console.WriteLine("NEM SZÁMOT ADTÁL MEG!!");
+                    return;
+                }
+
+                // if(userSzam)
+
+                tomb[i] = szam;
+
+                
             }
 
             int max2 = tomb[0];
@@ -69,6 +99,8 @@ namespace Feladat01
             Console.WriteLine("A legnagyobb szám amit megadtál: " + max2);
 
             Console.WriteLine("A legkisebb szám amit megadtál: " + min);
+
+            Console.ReadLine();
 
         }
     }
